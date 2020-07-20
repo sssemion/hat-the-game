@@ -1,0 +1,1 @@
+registerPopupWindow(".create-button", ".create-game-popup");
