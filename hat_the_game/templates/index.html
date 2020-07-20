@@ -1,12 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{static_url('css/style.css')}}">
-    <title>Document</title>
+    <title>Head_online</title>
+    <link rel="stylesheet" type="text/css" href="{{ static_url('css/style.css') }}">
+    <link href="http://fonts.fontstorage.com/import/gagalin.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Hello, world!</h1>
+    <h1>Шляпа онлайн</h1>
+    <div class="menu">
+        <div class="registration">
+            <div class="avatar">
+                <a href="index.html"><img class="graficlogo" src="{{ static_url('img/user.svg') }}" alt="Logo"></a>
+            </div>
+            <div class="text">
+                <label for="name"><b>Имя</b></label>
+                <input type="text" placeholder="Ваше имя" name="name" id="name" size="40" class="place" required>
+            </div>
+        </div>
+        <div class="buttons">
+            <div class="button1">
+                <a href="#win1" class="button1 orange">СОЗДАТЬ ИГРУ</a>
+                <a href="#x" class="overlay" id="win1"></a>
+                <div class="popup">
+                    fdbnghjdnbfhjghjdf
+                <a class="close" title="Закрыть" href="#close"></a>
+                </div>
+                </div>
+            <div class="button2">
+                <a href="#win2" class="button2 blue">НАЙТИ ИГРУ</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ static_url('js/script.js') }}"></script>
 </body>
 </html>
