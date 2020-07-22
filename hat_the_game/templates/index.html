@@ -26,7 +26,43 @@
     </div>
 
     <div class="popup create-game-popup">
-        fdbnghjdnbfhjghjdf
+            <h2 class="create-menu__header">Создание комнаты </h2>
+            <div class="create-menu__nick-header">
+                <img class="create-menu__graphiclogo" src="{{ static_url('img/man-with-hat.svg') }}" alt="Logo">
+            </div>
+            <div class="create-menu__checkbox">
+                <form method="post" action="input.php">
+                        <input type="checkbox" name="option1" value="a1" checked>Создать свой набор
+                    </div> 
+                </form>
+            <div class="slider">
+                <div class="slider__wrapper">
+                    <div class="slider__item">
+                    <div style="height: 250px; background: orange;">1</div>
+                    </div>
+                    <div class="slider__item">
+                    <div style="height: 250px; background: green;">2</div>
+                    </div>
+                    <div class="slider__item">
+                    <div style="height: 250px; background: violet;">3</div>
+                    </div>
+                    <div class="slider__item">
+                    <div style="height: 250px; background: coral;">4</div>
+                    </div>
+                    <div class="slider__item">
+                    <div style="height: 250px; background: brown;">5</div>
+                    </div>
+                    <div class="slider__item">
+                    <div style="height: 250px; background: orchid;">6</div>
+                    </div>
+                    <div class="slider__item">
+                    <div style="height: 250px; background: aqua;">7</div>
+                    </div>
+                    </div>
+                    <a class="slider__control slider__control_left" href="#" role="button"></a>
+                    <a class="slider__control slider__control_right slider__control_show" href="#" role="button"></a>
+                </div>
+            </div>
         <a class="popup__close" id="create-game-popup-close" title="Закрыть"></a>
     </div>
 
@@ -37,5 +73,6 @@
     <!-- Scripts -->
     <script src="{{ static_url('js/register-popup.js') }}"></script>
     <script src="{{ static_url('js/script.js') }}"></script>
+    <script src="{{ static_url('js/create-menu__slider.js') }}"></script>
 </body>
 </html>
