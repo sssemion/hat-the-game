@@ -311,3 +311,11 @@ h1 {
     font-size: 100px;
     text-align: center;
   }
+#create-menu__input-label {
+    font-size: 20px;
+}
+.create-menu__number {
+    display: inline-block;
+}
+.create-menu__number_text {
+}
