@@ -143,6 +143,8 @@ h1 {
     font-size: 14px;
     z-index: 20;
     margin: 0;
+    display: flex;
+    flex-direction: column;
     /* фиксированное позиционирование, окно стабильно при прокрутке */
     position: fixed;
     padding: 15px;
@@ -236,8 +238,8 @@ h1 {
 .create-menu__graphiclogo {
     padding-left: 30px;
 }
-.create-menu__checkbox {
-    font-size: 20px;
+.create-menu__checkbox_set {
+    font-size: 30px;
 }
 .slider {
     position: relative;
@@ -311,11 +313,23 @@ h1 {
     font-size: 100px;
     text-align: center;
   }
-#create-menu__input-label {
+#create-menu__input-label_name-lobby {
     font-size: 20px;
 }
 .create-menu__number {
-    display: inline-block;
+    padding-right: 100px;
 }
 .create-menu__number_text {
+}
+.create-menu__input-label-and-create-menu__number {
+    display: flex;
+    justify-content: space-between;
+}
+.create-menu__checkbox_close-lobby {
+    font-size: 30px;
+}
+.create-menu__create-button {
+    color: slateblue;
+    background: blue;
+    align-self: center;
 }

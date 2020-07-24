@@ -30,11 +30,9 @@
             <div class="create-menu__nick-header">
                 <img class="create-menu__graphiclogo" src="{{ static_url('img/man-with-hat.svg') }}" alt="Logo">
             </div>
-            <div class="create-menu__checkbox">
-                <form method="post" action="input.php">
-                        <input type="checkbox" name="option1" value="a1" checked>Создать свой набор
+            <div class="create-menu__checkbox_set">
+                    <label><input type="checkbox" style="width:20px;height:20px">Создать свой набор</label>
                     </div> 
-                </form>
             <div class="slider">
                 <div class="slider__wrapper">
                     <div class="slider__item">
@@ -62,14 +60,20 @@
                     <a class="slider__control slider__control_left" href="#" role="button"></a>
                     <a class="slider__control slider__control_right slider__control_show" href="#" role="button"></a>
                 </div>
-                <label for="name" id="create-menu__input-label">Название</label>
-                <input type="text" placeholder="Название комнаты" name="name" id="name" size="40" class="input-name" required>
-                <div class="create-menu__number">
-                    <form action="handler.php">
-                    <div class="create-menu__number_text">Количество комнат: </div>
-                        <div><input type="number" name="num" value="2" min="2" max="5" step="1"></div>
-                       </form>
+                <div class="create-menu__input-label-and-create-menu__number">
+                    <div class="create-menu__input-label_name-lobby">
+                    <label for="name" id="create-menu__input-label_name-lobby">Название</label>
+                    <input type="text" placeholder="Название комнаты" name="name" id="name" size="40" class="input-name" required>
+                    </div>
+                    <div class="create-menu__number">
+                        <div class="create-menu__number_text">Количество комнат:
+                        <input type="number" name="num" value="2" min="2" max="5" step="1"></div>
+                    </div>
                 </div>
+                <div class="create-menu__checkbox_close-lobby">
+                    <label><input type="checkbox" style="width:20px;height:20px">Создать закрытую комнату</label>
+                </div>
+                <button class="button create-menu__create-button">Создать</button>
             </div>
         <a class="popup__close" id="create-game-popup-close" title="Закрыть"></a>
     </div>
