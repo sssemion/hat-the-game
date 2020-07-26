@@ -15,8 +15,8 @@
     <div class="menu">
         <div class="registration">
             <img class="graphiclogo" src="{{ static_url('img/man-with-hat.svg') }}" alt="Logo">
-            <label for="name" id="input-label">Имя</label>
-            <input type="text" placeholder="Ваше имя" name="name" id="name" size="40" class="input-name" required>
+            <label for="username" id="input-label">Имя</label>
+            <input type="text" placeholder="Ваше имя" name="name" id="username" size="40" class="input-name" required>
         </div>
         <div class="buttons">
             <button class="button create-button">создать игру</button>
@@ -25,56 +25,72 @@
         </div>
     </div>
 
-    <div class="popup create-game-popup">
-        <h2 class="create-menu__header">Создание комнаты </h2>
-        <div class="create-menu__nick-header">
-            <img class="create-menu__graphiclogo" src="{{ static_url('img/man-with-hat.svg') }}" alt="Logo">
-        </div>
-        <div class="create-menu__checkbox_set">
-            <label><input type="checkbox" style="width:20px;height:20px">Создать свой набор</label>
-        </div> 
-        <div class="slider">
-            <div class="slider__wrapper">
-                <div class="slider__item">
-                    <div style="height: 250px; background: orange;">1</div>
-                </div>
-                <div class="slider__item">
-                    <div style="height: 250px; background: green;">2</div>
-                </div>
-                <div class="slider__item">
-                    <div style="height: 250px; background: violet;">3</div>
-                </div>
-                <div class="slider__item">
-                    <div style="height: 250px; background: coral;">4</div>
-                </div>
-                <div class="slider__item">
-                    <div style="height: 250px; background: brown;">5</div>
-                </div>
-                <div class="slider__item">
-                    <div style="height: 250px; background: orchid;">6</div>
-                </div>
-                <div class="slider__item">
-                    <div style="height: 250px; background: aqua;">7</div>
-                </div>
+    <div class="popup-wrapper">
+        <div class="popup create-game-popup">
+            <h2 class="create-menu__header">Создание комнаты </h2>
+            <div class="create-menu__nick-header">
+                <img class="create-menu__graphiclogo" src="{{ static_url('img/man-with-hat.svg') }}" alt="Logo">
             </div>
-            <a class="slider__control slider__control_left" href="#" role="button"></a>
-            <a class="slider__control slider__control_right slider__control_show" href="#" role="button"></a>
+            <form action="" method="post">
+                {% module xsrf_form_html() %}
+
+                <div class="form-item">
+                    {{ create_game_form.own_set() }}
+                    {{ create_game_form.own_set.label }}
+                </div>
+
+                <div class="form-item">
+                    {{ create_game_form.categories() }}
+                </div>
+
+                <div class="form-item">
+                    {{ create_game_form.name.label }}
+                    {{ create_game_form.name() }}
+                </div>
+
+                <div class="form-item">
+                    {{ create_game_form.team_number.label }}
+                    {{ create_game_form.team_number(type="number", min=2, max=5) }}
+                </div>
+
+                <div class="form-item">
+                    {{ create_game_form.is_private() }}
+                    {{ create_game_form.is_private.label }}
+                </div>
+                
+                <div class="form-item">
+                    {{ create_game_form.submit() }}
+                </div>
+                <!-- <div class="create-menu__checkbox_set">
+                    <input type="checkbox" id="own-set" style="width:20px;height:20px">
+                    <label for="own-set">Создать свой набор</label>
+                </div>
+
+                <div class="create-menu__select-categories">
+                    <select class="categories" name="categories" multiple>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+
+                <div class="create-menu__form-line">
+                    <div>
+                        <label for="name">Название</label>
+                        <input type="text" placeholder="Название комнаты" name="name" id="name" size="40" class="input-name" required>
+                    </div>
+                    <div>
+                        <label for="teams">Количество команд:</label>
+                        <input type="number" name="num" id="teams" value="2" min="2" max="5" step="1">
+                    </div>
+                </div>
+                <div class="create-menu__is-session-private">
+                    <input type="checkbox" id="is-session-private" name="is-private" style="width:20px;height:20px">
+                    <label for="is-session-private">Создать закрытую комнату</label>
+                </div>
+                <input type="submit" class="button create-menu__submit-button" /> -->
+            </form>
+            <a class="popup__close" id="create-game-popup-close" title="Закрыть"></a>
         </div>
-        <div class="create-menu__input-label-and-create-menu__number">
-            <div class="create-menu__input-label_name-lobby">
-                <label for="name" id="create-menu__input-label_name-lobby">Название</label>
-                <input type="text" placeholder="Название комнаты" name="name" id="name" size="40" class="input-name" required>
-            </div>
-            <div class="create-menu__number">
-                <div class="create-menu__number_text">Количество комнат:
-                <input type="number" name="num" value="2" min="2" max="5" step="1"></div>
-            </div>
-        </div>
-        <div class="create-menu__checkbox_close-lobby">
-            <label><input type="checkbox" style="width:20px;height:20px">Создать закрытую комнату</label>
-        </div>
-        <button class="button create-menu__create-button">Создать</button>
-        <a class="popup__close" id="create-game-popup-close" title="Закрыть"></a>
     </div>
 
     <div class="popup-overlay"></div>
@@ -84,6 +100,5 @@
     <!-- Scripts -->
     <script src="{{ static_url('js/register-popup.js') }}"></script>
     <script src="{{ static_url('js/script.js') }}"></script>
-    <script src="{{ static_url('js/create-menu__slider.js') }}"></script>
 </body>
 </html>

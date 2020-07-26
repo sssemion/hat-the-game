@@ -49,10 +49,6 @@ h1 {
     font-size: 30px;
 }
 
-#input-label {
-    margin: 0 16px;
-}
-
 .input-name {
     width: 300px;
     height: 30px;
@@ -137,16 +133,13 @@ h1 {
 
 /* стили всплывающего окна */
 .popup {
-    top: -100%;
-    right: 0;
-    left: 50%;
     font-size: 14px;
-    z-index: 20;
-    margin: 0;
+    z-index: 1000;
     display: flex;
     flex-direction: column;
-    /* фиксированное позиционирование, окно стабильно при прокрутке */
-    position: fixed;
+
+    position: relative;
+
     padding: 15px;
     border: 1px solid #383838;
     background: #fefefe;
@@ -161,22 +154,18 @@ h1 {
     -moz-box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
     -ms-box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
     box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
-    -webkit-transform: translate(-50%, -500%);
-    -ms-transform: translate(-50%, -500%);
-    -o-transform: translate(-50%, -500%);
-    transform: translate(-50%, -500%);
-    -webkit-transition: -webkit-transform 0.6s ease-out;
-    -moz-transition: -moz-transform 0.6s ease-out;
-    -o-transition: -o-transform 0.6s ease-out;
-    transition: transform 0.6s ease-out;
 }
-/* активируем модальный блок */
-.popup.active {
-    -webkit-transform: translate(-50%, 0);
-    -ms-transform: translate(-50%, 0);
-    -o-transform: translate(-50%, 0);
-    transform: translate(-50%, 0);
-    top: 20%;
+
+.popup-wrapper {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 99999;
 }
 
 /* кнопка закрытия */
@@ -225,9 +214,17 @@ h1 {
 }
 .create-game-popup {
     width: 1200px;
-    height: 1000px;
+    left: calc(50% - 600px);
+    height: 800px;
+    top: calc(50% - 400px);
     line-height: 60px;
 }
+
+.create-game-popup form {
+    display: flex;
+    flex-direction: column;
+}
+
 .create-menu__nick-header {
     width: 1200px;
     height: 50px;
@@ -312,23 +309,18 @@ h1 {
     line-height: 250px;
     font-size: 100px;
     text-align: center;
-  }
-#create-menu__input-label_name-lobby {
-    font-size: 20px;
 }
 .create-menu__number {
     padding-right: 100px;
 }
-.create-menu__number_text {
-}
-.create-menu__input-label-and-create-menu__number {
+.create-menu__form-line {
     display: flex;
     justify-content: space-between;
 }
-.create-menu__checkbox_close-lobby {
+.create-menu__is-session-private {
     font-size: 30px;
 }
-.create-menu__create-button {
+.create-menu__submit-button {
     color: slateblue;
     background: blue;
     align-self: center;

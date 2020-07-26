@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 
 .idea/
+.vs/
+/hat_the_game/db/
