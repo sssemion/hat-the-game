@@ -18,6 +18,6 @@ app = tornado.web.Application(
     **SETTINGS
 )
 
-from hat_the_game import models
+from hat_the_game.models import *
 
 app.settings["db"].create_all()

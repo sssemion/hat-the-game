@@ -1,10 +1,9 @@
 import tornado.web
-from tornado_sqlalchemy import SessionMixin
 
 from hat_the_game.forms.create_game_session_form import CreateGameSessionForm
 
 
-class IndexHandler(SessionMixin, tornado.web.RequestHandler):
+class IndexHandler(tornado.web.RequestHandler):
     async def get(self):
         create_game_form = CreateGameSessionForm()
         await self.render("index.html",

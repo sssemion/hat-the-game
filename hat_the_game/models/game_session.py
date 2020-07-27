@@ -9,7 +9,6 @@ db = app.settings["db"]
 
 
 class GameSession(db.Model):
-
     __tablename__ = "game_sessions"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -24,16 +23,3 @@ class GameSession(db.Model):
     creation_date = Column(DateTime, default=datetime.datetime.now())
 
     word_set = orm.relation("WordSet", foreign_keys=[word_set_id])
-
-
-class WordSet(db.Model):
-
-    __tablename__ = "word_sets"
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(255), nullable=False, index=True)
-    description = Column(String)
-    img = Column(String, default="/static/img/word-sets-icons/default.svg")
-    private = Column(Boolean, default=False)
-
-# Todo: модель Word и отношение один ко многим (к модели WordSet)

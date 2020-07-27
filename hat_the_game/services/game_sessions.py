@@ -33,5 +33,11 @@ def generate_invite_id() -> str:
             invite_id = secrets.token_urlsafe(6)
 
             from hat_the_game.models import GameSession
-            if not session.query(GameSession).filter(GameSession.invite_id == invite_id).first():
-                return invite_id
+            from hat_the_game.handlers import handlers
+
+            if session.query(GameSession).filter(GameSession.invite_id == invite_id).first():
+                continue
+            elif invite_id in map(lambda x: x[0].strip("\\/"), handlers):
+                continue
+
+            return invite_id
