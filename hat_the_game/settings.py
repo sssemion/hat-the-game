@@ -9,6 +9,7 @@ db_name = os.environ.get("DB_NAME")
 
 SETTINGS = {
     "autoescape": None,
+    "cookie_secret": os.environ.get("COOKIE_SECRET"),
     "db": SQLAlchemy(f"postgres://{pg_user}:{pg_pass}@{pg_host}/{db_name}"),
     "debug": True,
     "static_path": os.path.join(os.path.dirname(__file__), "static"),

@@ -34,7 +34,7 @@ class LoginMixin:
 
         password_hash = hashlib.pbkdf2_hmac("sha512",
                                             assumed_password.encode("utf-8"),
-                                            salt,
+                                            salt.encode("ascii"),
                                             100000)
-        password_hash = binascii.hexlify(password_hash)
+        password_hash = binascii.hexlify(password_hash).decode("ascii")
         return stored_password == password_hash

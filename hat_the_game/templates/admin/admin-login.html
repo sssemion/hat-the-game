@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+    crossorigin="anonymous">
+    <title>Войти в панель администратора</title>
+</head>
+<body>
+    {% try %}
+        {% set success = not login_failed %}
+    {% except NameError %}
+        {% set success = True %}
+    {% end %}
+
+    <div class="d-flex flex-column justify-content-center align-items-center px-3" style="height: 100vh">
+        <form class="py-3 border rounded-lg d-flex flex-column align-items-center w-100 overflow-hidden" style="max-width: 700px" action="" method="POST">
+            <h3 class="form-group">Авторизация</h3>
+            {% module xsrf_form_html() %}
+            <div class="form-group w-75">
+                {{ form.login.label }}
+                {{ form.login(**{
+                    "class": "form-control" + (" is-invalid" if not success else "")
+                }) }}
+            </div>
+            <div class="form-group w-75">
+                {{ form.password.label }}
+                {{ form.password(**{
+                    "class": "form-control" + (" is-invalid" if not success else "")
+                }) }}
+                <p class="invalid-feedback">
+                    Неверный логин или пароль!
+                </p>
+            </div>
+                {{ form.submit(**{
+                    "class": "btn btn-primary"
+                }) }}
+            </div>
+        </form>
+    </div>
+</body>
+</html>

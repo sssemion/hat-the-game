@@ -9,7 +9,7 @@ dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 if os.path.exists(dotenv_path):
     load_dotenv(dotenv_path)
 else:
-    raise FileNotFoundError(".env file doesn't exists")
+    raise FileNotFoundError(".env file doesn't exist")
 
 from .settings import SETTINGS
 
